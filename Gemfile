@@ -10,8 +10,14 @@ gem 'bootstrap_helper', :git => "git://github.com/xdite/bootstrap-helper.git"
 gem "settingslogic"
 
 
+
 group :development do
   gem "annotate"
+end
+
+group :production do
+ gem 'execjs'
+ gem 'therubyracer'
 end
 
 

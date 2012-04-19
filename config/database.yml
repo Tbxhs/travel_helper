@@ -35,5 +35,5 @@ production:
   database: travel_helper
   pool: 5
   username: root
-  password: localhost
-  host: 
+  password: 
+  host: localhost

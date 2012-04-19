@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%= render_page_title %>
+  <%= stylesheet_link_tag    "application", media: "screen" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <!–[if IE]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]–>
+</head>
+<body>
+  <% if !current_page?(root_path) %>
+  <header class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container">
+            <%= link_to "行程单", '/', id: "logo" %>
+            <nav>
+              <%= render "common/user_nav" %>
+            </nav>
+          </div>
+        </div>
+      </header>
+  <% end %>
+  <div class="container">
+    <%= notice_message %>
+    
+    <%= yield %>
+    
+    <footer class="footer" style="text-align: center;">
+      <p>
+        © 2012 行程单 Development by <a href="http://weibo.com/zhangyiqun1" target="_blank">zhangyiqun.</a>
+      </p>
+    </footer>
+
+  </div>
+  
+
+
+</body>
+</html>

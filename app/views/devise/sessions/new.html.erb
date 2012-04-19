@@ -1,0 +1,19 @@
+<h2>登录</h2>
+
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+  <div><%= f.label :email %>
+  <%= f.email_field :email %></div>
+
+  <div><%= f.label :password %>
+  <%= f.password_field :password %></div>
+
+  <% if devise_mapping.rememberable? -%>
+  <div>
+    <label for="user_remember_me" style="display:inline;"><%= f.check_box :remember_me, :style => "display:inline;" %> 记住我</label> 
+  <% end -%>
+
+  <%= f.submit "登录" , :class => "btn btn-primary",style: "margin-left:30px;" , :disable_with => "正在登录" %>
+  </div>
+<% end %>
+
+<%= render "links" %>

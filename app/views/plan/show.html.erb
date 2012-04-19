@@ -1,0 +1,130 @@
+<div class="alert">
+  <div class="plan_detail_head">
+    <h2><%= @plan.title%></h2>
+    <span>由 <%= @plan.username%>
+    于 <%= @plan.created_at.strftime("%Y-%m-%d %T")%> 时创建。</span>
+    <br>
+    
+    <%= link_to "编辑",edit_plan_path(@plan),:class=>"btn btn-mini" if current_user%>
+    <%= link_to "添加行程安排",new_plan_plan_detail_path(@plan),:class=>"btn btn-mini" if current_user%>
+  </div>
+</div>
+
+<div class="modal fade" id="edit-plan-detail-modal" style="width:690px;">
+
+</div>
+
+<div class="well">
+
+  <div class="alert alert-info">
+    总计花费：<%= number_to_currency(@plan.price, :unit => "")%>元。
+    其中交通工具花费了<%= number_to_currency(@total_air_price, :unit => "")%>元，
+    住花费了<%= number_to_currency(@total_hotel_price, :unit => "")%>元。
+  </div>
+
+  <span class="label label-info" style="font-size:15px"><i class="icon-plane icon-white icon-add-margin"></i>飞机</span>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>起飞城市</th>
+        <th>抵达城市</th>
+        <th>起飞时间</th>
+        <th>到达时间</th>
+        <th>价格(元)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @plan_details.each do |detail| %>
+        <% if detail.plan_type == "air"%>
+          <tr>
+            <td><%= detail.from_city%></td>
+            <td><%= detail.to_city%></td>
+            <td><%= detail.go_time.try(:strftime,"%Y-%m-%d %H:%M")%></td>
+            <td><%= detail.arrive_time.try(:strftime,"%Y-%m-%d %H:%M")%></td>
+            <td><%= detail.price%></td>
+            <% if current_user %>
+              <td>
+                <a class="btn btn-mini edit-plan-detail" href="javascript: void(0)" id="<%= edit_plan_detail_path(detail) %>">修改</a>
+              </td>
+            <% end %>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+  
+  <span class="label label-warning" style="font-size:15px"><i class="icon-home icon-white icon-add-margin"></i>住宿</span>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>所在城市</th>
+        <th>酒店名称</th>
+        <th>入住日期</th>
+        <th>离店日期</th>
+        <th>价格(元)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @plan_details.each do |detail| %>
+        <% if detail.plan_type == "hotel"%>
+          <tr>
+            <td><%= detail.to_city%></td>
+            <td><%= detail.hotel_name%></td>
+            <td><%= detail.go_time.try(:strftime,"%Y-%m-%d %H:%M")%></td>
+            <td><%= detail.arrive_time.try(:strftime,"%Y-%m-%d %H:%M")%></td>
+            <td><%= detail.price%></td>
+            <% if current_user %>
+              <td>
+                <a class="btn btn-mini edit-plan-detail" href="javascript: void(0)" id="<%= edit_plan_detail_path(detail) %>">修改</a>
+              </td>
+            <% end %>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+  
+  <span class="label label-success" style="font-size:15px"><i class="icon-map-marker icon-white icon-add-margin"></i>路线规划</span>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>出发地</th>
+        <th>目标</th>
+        <th>详细</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @plan_details.each do |detail| %>
+        <% if detail.plan_type == "way"%>
+          <tr>
+            <td><%= detail.from_city%></td>
+            <td><%= detail.to_city%></td>
+            <td style="width:590px;"><%= detail.zoufa%></td>
+            <% if current_user %>
+              <td>
+                <a class="btn btn-mini edit-plan-detail" href="javascript: void(0)" id="<%= edit_plan_detail_path(detail) %>">修改</a>
+              </td>
+            <% end %>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+
+<!-- Duoshuo Comment BEGIN -->
+	<div class="ds-thread"></div>
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name: "xingcheng"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- Duoshuo Comment END -->

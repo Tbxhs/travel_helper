@@ -1,0 +1,16 @@
+<%= render "shared/error_messages", :target => @plan %>
+
+<div class="control-group">
+  <%= f.label :title ,:class=> "control-label" %>
+  <div class="controls">
+    <%= f.text_field :title ,:class=> "input-xlarge"%>
+  </div>
+</div>
+
+<div class="control-group">
+  <%= f.label :password ,:class=> "control-label" %>
+  <div class="controls">
+    <%= f.password_field :password ,:class=> "input-xlarge"%>
+    <span class="help-block">如需加密请填写密码，否则留空</span>
+  </div>
+</div>

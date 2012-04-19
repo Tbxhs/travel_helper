@@ -1,0 +1,7 @@
+<div class="control-group" id="1">
+  <%= text_field_tag "plan_detail[to_city]",nil, :class => "input-small",placeholder:"所在城市",value:@detail.to_city %>
+  <%= text_field_tag "plan_detail[hotel_name]",nil, :class => "input-small",placeholder:"酒店名称",value:@detail.hotel_name %>
+  <%= text_field_tag "plan_detail[go_time]",nil, :class => "input-medium picktime-sample",placeholder:"入住日期",readonly:"readonly",value:@detail.go_time %>
+  <%= text_field_tag "plan_detail[arrive_time]",nil, :class => "input-medium picktime-sample",placeholder:"离店日期",readonly:"readonly",value:@detail.arrive_time %>
+  <%= text_field_tag "plan_detail[price]",nil, :class => "input-small",placeholder:"含税总价",value:@detail.price %>
+</div>

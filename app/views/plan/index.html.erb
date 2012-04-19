@@ -1,0 +1,24 @@
+<% if @plans.any? %>
+<div class="well">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>名称</th>
+        <th>总计花费</th>
+        <th>更新时间</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @plans.each do |plan| %>
+      <tr>
+        
+        <td><%= link_to plan.title,plan_path(plan) %></td>
+        <td><%= plan.price %></td>
+        <td><%= plan.updated_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
+
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<% end %>

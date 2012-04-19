@@ -1,0 +1,11 @@
+defaults: &defaults
+  app_name: "行程单"
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

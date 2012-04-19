@@ -1,0 +1,7 @@
+<div class="control-group" id="1">
+  <%= text_field_tag "plan_detail[from_city]",nil, :class => "input-small",value:@detail.from_city,placeholder:"起飞城市"%>
+  <%= text_field_tag "plan_detail[to_city]",nil, :class => "input-small",value:@detail.to_city,placeholder:"抵达城市" %>
+  <%= text_field_tag "plan_detail[go_time]",nil, :class => "input-medium picktime",value:@detail.go_time,readonly:"readonly",placeholder:"起飞时间" %>
+  <%= text_field_tag "plan_detail[arrive_time]",nil, :class => "input-medium picktime",value:@detail.arrive_time,readonly:"readonly",placeholder:"到达时间" %>
+  <%= text_field_tag "plan_detail[price]",nil, :class => "input-small",value:@detail.price,placeholder:"价格:人民币" %>
+</div>

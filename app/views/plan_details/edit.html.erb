@@ -1,0 +1,20 @@
+<%= javascript_include_tag "plan_details" %>
+
+<div class="modal-header">
+  <a class="close" data-dismiss="modal">×</a>
+  <h3>修改</h3>
+</div>
+
+<%= form_tag(plan_detail_path(@detail), :method => "put") do %>
+  <div class="modal-body">
+  
+    <%= render @detail.plan_type%>
+  
+  </div>
+  
+  <div class="modal-footer">
+    <%= link_to "删除",plan_detail_path(@detail),:class => "btn btn-danger",method: :delete, confirm: "确定?" %>
+    <button type="submit" class="btn btn-primary">保存</button>
+  </div>
+<% end %>
+

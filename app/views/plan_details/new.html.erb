@@ -1,0 +1,59 @@
+<div class="alert alert-info">
+  在此填写详细的行程安排
+</div>
+
+<%= form_for(@plan_details,url: plan_plan_details_path(@plan) ,:html =>{:class => "well"}) do |f| %>
+  <fieldset>
+    <legend class="no-margin-bottom">飞机</legend>
+
+    <div class="control-group" id="1">
+      <%= text_field_tag "plan_detail_air[1][from_city]",nil, :class => "input-small",placeholder:"起飞城市"%>
+      <%= text_field_tag "plan_detail_air[1][to_city]",nil, :class => "input-small",placeholder:"抵达城市" %>
+      <%= text_field_tag "plan_detail_air[1][go_time]",nil, :class => "input-medium picktime",placeholder:"起飞时间",readonly:"readonly" %>
+      <%= text_field_tag "plan_detail_air[1][arrive_time]",nil, :class => "input-medium picktime",placeholder:"到达时间",readonly:"readonly" %>
+      <%= text_field_tag "plan_detail_air[1][price]",nil, :class => "input-small",placeholder:"价格:人民币" %>
+    </div>
+    
+    <div class="control-group" id="add_air">
+      <a id="add_air_button" class="btn btn-info" href="javascript:void(0)">增加</a>
+    </div>
+    
+  </fieldset>
+  
+  <fieldset>
+    <legend class="no-margin-bottom">住宿</legend>
+
+    <div class="control-group" id="1">
+      <%= text_field_tag "plan_detail_hotel[1][to_city]",nil, :class => "input-small",placeholder:"所在城市" %>
+      <%= text_field_tag "plan_detail_hotel[1][hotel_name]",nil, :class => "input-small",placeholder:"酒店名称" %>
+      <%= text_field_tag "plan_detail_hotel[1][go_time]",nil, :class => "input-medium picktime-sample",placeholder:"入住日期",readonly:"readonly" %>
+      <%= text_field_tag "plan_detail_hotel[1][arrive_time]",nil, :class => "input-medium picktime-sample",placeholder:"离店日期",readonly:"readonly" %>
+      <%= text_field_tag "plan_detail_hotel[1][price]",nil, :class => "input-small",placeholder:"含税总价" %>
+    </div>
+    
+    <div class="control-group" id="add_hotel">
+      <a id="add_hotel_button" class="btn btn-info" href="javascript:void(0)">增加</a>
+    </div>
+    
+  </fieldset>
+  
+  <fieldset>
+    <legend class="no-margin-bottom">路线规划</legend>
+
+    <div class="control-group" id="1">
+      <%= text_field_tag "plan_detail_way[1][from_city]",nil, :class => "input-medium",placeholder:"从(XX机场)" %>
+      <%= text_field_tag "plan_detail_way[1][to_city]",nil, :class => "input-medium",placeholder:"至(XX酒店)" %>
+      <%= text_area_tag "plan_detail_way[1][zoufa]",nil, :class => "input-xlarge zoufa",placeholder:"走法" %>
+    </div>
+    
+    <div class="control-group" id="add_way">
+      <a id="add_way_button" class="btn btn-info" href="javascript:void(0)">增加</a>
+    </div>
+    
+  </fieldset>
+  
+  <div class="form-actions">
+    <button type="submit" class="btn btn-primary">保存</button>
+    <a class="btn" href="<%= my_path %>">取消</a>
+  </div>
+<% end %>

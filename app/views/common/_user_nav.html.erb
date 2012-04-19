@@ -1,0 +1,17 @@
+<% if current_user %>
+
+  <%= render_list :class => "nav" do |li|
+    li << link_to("管理我的行程",    my_path)
+  end %>
+
+  <%= render_list :class => "nav pull-right" do |li|
+    li << link_to("个人资料",    edit_user_registration_path)
+    li << link_to("退出", destroy_user_session_path, :method => :delete)
+  end %>
+  
+<% else %>
+  <%= render_list :class => "nav pull-right" do |li|
+    li << link_to("登陆",    new_user_session_path)
+    li << link_to("注册", new_user_registration_path)
+  end %>
+<% end %>

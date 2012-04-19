@@ -1,0 +1,12 @@
+<%= form_for(@plan,url: plan_index_path ,:html =>{:class => "form-horizontal well"}) do |f| %>
+  <fieldset>
+    <legend>新建行程单</legend>
+    
+    <%= render :partial => 'plan_form', :locals => { :f => f } %>
+    
+    <div class="form-actions">
+      <%= f.submit "下一步",:class => "btn btn-primary" %>
+      <button class="btn">取消</button>
+    </div>
+  </fieldset>
+<% end %>

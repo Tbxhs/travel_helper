@@ -1,0 +1,35 @@
+# == Schema Information
+#
+# Table name: plans
+#
+#  id          :integer(4)      not null, primary key
+#  title       :string(255)
+#  username    :string(255)
+#  digg        :integer(4)
+#  connect     :string(255)
+#  password    :string(255)
+#  gonglue_url :string(255)
+#  user_id     :integer(4)
+#  created_at  :datetime        not null
+#  updated_at  :datetime        not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  username: MyString
+  digg: 
+  connect: MyString
+  password: MyString
+  gonglue_url: MyString
+  user_id: 
+
+two:
+  title: MyString
+  username: MyString
+  digg: 
+  connect: MyString
+  password: MyString
+  gonglue_url: MyString
+  user_id: 

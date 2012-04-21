@@ -2,7 +2,7 @@
   在此填写详细的行程安排
 </div>
 
-<%= form_for(@plan_details,url: plan_plan_details_path(@plan) ,:html =>{:class => "well"}) do |f| %>
+<%= form_for(@plan_details,url: plan_plan_details_path(@plan) ,:html =>{:class => "well",id:"all_plan_detail_air"}) do |f| %>
   <fieldset>
     <legend class="no-margin-bottom">飞机</legend>
 

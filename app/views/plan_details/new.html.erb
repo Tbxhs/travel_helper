@@ -3,7 +3,7 @@
 </div>
 
 <%= form_for(@plan_details,url: plan_plan_details_path(@plan) ,:html =>{:class => "well",id:"all_plan_detail_air"}) do |f| %>
-  <fieldset id="new-air-details-form">
+  <fieldset>
     <legend class="no-margin-bottom">飞机</legend>
 
     <div class="control-group" id="1">
@@ -43,6 +43,7 @@
     <div class="control-group" id="1">
       <%= text_field_tag "plan_detail_way[1][from_city]",nil, :class => "input-medium",placeholder:"从(XX机场)" %>
       <%= text_field_tag "plan_detail_way[1][to_city]",nil, :class => "input-medium",placeholder:"至(XX酒店)" %>
+      <%= text_field_tag "plan_detail_way[1][go_time]",nil, :class => "input-medium picktime-sample",placeholder:"出发时间" %>
       <%= text_area_tag "plan_detail_way[1][zoufa]",nil, :class => "input-xlarge zoufa",placeholder:"走法" %>
     </div>
     

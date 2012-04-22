@@ -93,6 +93,7 @@
       <tr>
         <th>出发地</th>
         <th>目标</th>
+        <th>出发时间</th>
         <th>详细</th>
       </tr>
     </thead>
@@ -102,7 +103,8 @@
           <tr>
             <td><%= detail.from_city%></td>
             <td><%= detail.to_city%></td>
-            <td style="width:590px;"><%= detail.zoufa%></td>
+            <td><%= detail.go_time.try(:strftime,"%Y-%m-%d %H:%M")%></td>
+            <td style="width: 360px;"><p style="width:350px;word-wrap: break-word;"><%= detail.zoufa %><p></td>
             <% if current_user %>
               <td>
                 <a class="btn btn-mini edit-plan-detail" href="javascript: void(0)" id="<%= edit_plan_detail_path(detail) %>">修改</a>

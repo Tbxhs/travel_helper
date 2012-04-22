@@ -1,17 +1,17 @@
 jQuery ->
 	
 	$("#add_air_button").click ->
-		show_line("#new-air-details-form")
+		show_line("#add_air")
 						
 	$("#add_hotel_button").click ->
 		show_line("#add_hotel")
 	
 	$("#add_way_button").click ->
-		insertNewLine("#add_way")
+		show_line("#add_way")
 	
 	#在某div之前查找隐藏的节点，并将其显示处理
 	show_line = (the_div) ->
-		$(the_div).children().each ->
+		$(the_div).parent().children().each ->
 			if $(this).is(":hidden")
 				$(this).show()
 				return false
@@ -41,6 +41,7 @@ jQuery ->
 	for number in [1..15]
 		insertNewLine("#add_air")
 		insertNewLine("#add_hotel")
+		insertNewLine("#add_way")
 	
 	$(".picktime").datetimepicker
 		numberOfMonths: 1 #显示几个月  

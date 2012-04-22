@@ -1,5 +1,6 @@
 <div class="control-group" id="1">
   <%= text_field_tag "plan_detail[from_city]",nil, :class => "input-medium",placeholder:"从(XX机场)",value:@detail.from_city %>
   <%= text_field_tag "plan_detail[to_city]",nil, :class => "input-medium",placeholder:"至(XX酒店)",value:@detail.to_city %>
+  <%= text_field_tag "plan_detail[go_time]",nil, :class => "input-medium picktime-sample",placeholder:"时间",value:@detail.go_time %>
   <%= text_area_tag "plan_detail[zoufa]",@detail.zoufa, :class => "input-xlarge zoufa",placeholder:"走法" %>
 </div>

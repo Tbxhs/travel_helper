@@ -1,5 +1,80 @@
 <%#TODO%>
-<%= javascript_include_tag "application" %>
+<script>
+(function() {
+
+  jQuery(function() {
+    var insertNewLine, number, show_line;
+    $("#add_air_button").click(function() {
+      return show_line("#add_air");
+    });
+    $("#add_hotel_button").click(function() {
+      return show_line("#add_hotel");
+    });
+    $("#add_way_button").click(function() {
+      return show_line("#add_way");
+    });
+    show_line = function(the_div) {
+      return $(the_div).parent().children().each(function() {
+        if ($(this).is(":hidden")) {
+          $(this).show();
+          return false;
+        }
+      });
+    };
+    insertNewLine = function(the_button_div) {
+      var line_num, new_line, new_line_num, the_node;
+      the_node = $(the_button_div).prev();
+      line_num = parseInt(the_node.attr("id"));
+      new_line_num = line_num + 1;
+      new_line = the_node.clone();
+      new_line.attr("id", new_line_num);
+      new_line.children().each(function() {
+        var new_id, new_name;
+        new_id = $(this).attr("id").replace(line_num, new_line_num);
+        new_name = $(this).attr("name").replace(line_num, new_line_num);
+        $(this).attr("id", new_id);
+        $(this).attr("name", new_name);
+        return $(this).attr("value", "");
+      });
+      $(the_button_div).before(new_line);
+      return new_line.hide();
+    };
+    for (number = 1; number <= 15; number++) {
+      insertNewLine("#add_air");
+      insertNewLine("#add_hotel");
+      insertNewLine("#add_way");
+    }
+    $(".picktime").datetimepicker({
+      numberOfMonths: 1,
+      showButtonPanel: true,
+      dateFormat: 'yy-mm-dd',
+      clearText: "清除",
+      closeText: "关闭",
+      yearSuffix: '年',
+      showMonthAfterYear: true,
+      monthNames: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+      dayNames: ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'],
+      dayNamesShort: ['周日', '周一', '周二', '周三', '周四', '周五', '周六'],
+      dayNamesMin: ['日', '一', '二', '三', '四', '五', '六']
+    });
+    return $(".picktime-sample").datepicker({
+      numberOfMonths: 1,
+      showButtonPanel: true,
+      dateFormat: 'yy-mm-dd',
+      clearText: "清除",
+      closeText: "关闭",
+      yearSuffix: '年',
+      showMonthAfterYear: true,
+      monthNames: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+      dayNames: ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'],
+      dayNamesShort: ['周日', '周一', '周二', '周三', '周四', '周五', '周六'],
+      dayNamesMin: ['日', '一', '二', '三', '四', '五', '六']
+    });
+  });
+
+}).call(this);
+
+</script>
 
 <div class="modal-header">
   <a class="close" data-dismiss="modal">×</a>

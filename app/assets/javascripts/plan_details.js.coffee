@@ -1,7 +1,7 @@
 jQuery ->
 	
 	$("#add_air_button").click ->
-		show_line("#add_air")
+		show_line("#new-air-details-form")
 						
 	$("#add_hotel_button").click ->
 		show_line("#add_hotel")
@@ -11,7 +11,7 @@ jQuery ->
 	
 	#在某div之前查找隐藏的节点，并将其显示处理
 	show_line = (the_div) ->
-		$(the_div).prevAll().each ->
+		$(the_div).children().each ->
 			if $(this).is(":hidden")
 				$(this).show()
 				return false

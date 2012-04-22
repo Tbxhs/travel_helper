@@ -22,5 +22,5 @@ class PlanDetail < ActiveRecord::Base
   
   belongs_to :plan
   
-
+  default_scope order: 'plan_details.go_time'
 end

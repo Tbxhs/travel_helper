@@ -1,3 +1,5 @@
+官网地址: http://xingchengdan.me
+
 == 行程单
 
 想出去玩，不知道大概要花多少钱？
@@ -9,4 +11,15 @@
 == TODO
 
 行程扫描：发布行程单后根据情况扫描出你可能在旅途中与谁相遇
+
 手机版：碰一碰手机就可以分享行程给对方
+
+== Getting Started
+
+Require: Mysql, Ruby >= 1.9.2, Rails 3.2+
+
+1. Clone.
+
+2. Migrate db and start the web server.
+
+3. Go to http://localhost:3000/ and you'll see the home page.
